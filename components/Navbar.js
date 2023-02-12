@@ -14,7 +14,7 @@ const Navbar = () => {
             <li><Link href='/about'>Nosotros</Link></li>
         </ul>
 
-      <button className='cart-button'>carrito</button>
+      <button className='cart-button' onClick={() => {}} >carrito</button>
     </div> 
   )
 }

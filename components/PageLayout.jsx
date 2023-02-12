@@ -11,10 +11,8 @@ export default function PageLayout({ children, title }) {
             <title> {`Akiko - ${title}`} </title>
         </Head>
 
-        <Navbar />
-
         <header>
-            <h1> {title} </h1>
+            <Navbar />
         </header>
 
         <main>{children}</main>
