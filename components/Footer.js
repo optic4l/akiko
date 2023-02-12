@@ -7,9 +7,9 @@ const Footer = () => {
         <div className='footer-content'>
             <img src='' alt='logo' />
             <ul>
-                <li><Link href='/productos'>Productos</Link></li>
-                <li><Link href='/ofertas'>Ofertas</Link></li>
-                <li><Link href='/nosotros'>Nosotros</Link></li>
+                <li><Link href='/productPage'>Productos</Link></li>
+                <li><Link href='/offers'>Ofertas</Link></li>
+                <li><Link href='/about'>Nosotros</Link></li>
             </ul>
             <div className='icons-container'>
                 <ul>
