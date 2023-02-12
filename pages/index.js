@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Navbar from '../components/Navbar';
+
 import Herobanner from '../components/Herobanner';
-import Footer from '../components/Footer';
+import PageLayout from '../components/PageLayout';
 
 const Home = () => {
   return (
     <>
-      <Navbar />
+      <PageLayout title='Home'>
 
       <Herobanner />
 
@@ -17,7 +17,8 @@ const Home = () => {
 
       Valoraciones
       
-      <Footer /> 
+      </PageLayout>
+      
     </>
   )
 }

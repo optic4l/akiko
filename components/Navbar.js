@@ -1,8 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 
-import CartButton from './CartButton';
-
 const Navbar = () => {
   return (
     <div className='navbar-container'>
@@ -11,9 +9,9 @@ const Navbar = () => {
         </Link>
         
         <ul>
-            <li><Link href='/productos'>Productos</Link></li>
-            <li><Link href='/ofertas'>Ofertas</Link></li>
-            <li><Link href='/nosotros'>Nosotros</Link></li>
+            <li><Link href='/productPage'>Productos</Link></li>
+            <li><Link href='/offers'>Ofertas</Link></li>
+            <li><Link href='/about'>Nosotros</Link></li>
         </ul>
 
       <button className='cart-button'>carrito</button>
