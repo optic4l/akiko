@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { Button, AppBar, Container, Toolbar, MenuItem, Box } from '@mui/material';
+import { Button, AppBar, Container, Toolbar, MenuItem, Box, Badge } from '@mui/material';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 
 
@@ -31,10 +31,20 @@ const Navbar = () => {
             <MenuItem><Link href='/productPage'>Productos</Link></MenuItem>
             <MenuItem><Link href='/offers'>Ofertas</Link></MenuItem>
             <MenuItem><Link href='/about'>Nosotros</Link></MenuItem>
-        
-            <Button variant='contained' onClick={() => {}} sx={{
-              backgroundColor: 'var(--alert-color)',
-            }} >carrito <ShoppingBagOutlinedIcon /></Button>
+
+            
+            <Button 
+            variant='contained' 
+            onClick={() => {}} 
+            sx={{ backgroundColor: 'var(--alert-color)'}} >
+              carrito <Badge badgeContent={2} color='primary' sx={{
+                backgroundColor: 'var(--alert-color)',
+                color: 'var(--light-color)',
+                
+              }}><ShoppingBagOutlinedIcon /></Badge>
+            </Button>
+            
+            
           </Box>
           
         </Toolbar>
