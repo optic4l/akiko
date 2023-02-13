@@ -12,9 +12,9 @@ export default function PageLayout({ children, title }) {
         </Head>
 
         <header>
-            <Navbar />
+          <Navbar />
         </header>
-
+        
         <main>{children}</main>
 
         <Footer />
