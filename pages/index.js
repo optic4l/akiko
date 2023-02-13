@@ -1,19 +1,26 @@
 import React from 'react';
 
+import { Container } from '@mui/material';
 
 import Herobanner from '../components/Herobanner';
 import PageLayout from '../components/PageLayout';
 
-const Home = () => {
+import { client } from '../lib/client';
+
+const Home = ({ products, bannerData }) => {
+  console.log(products);
   return (
     <>
       <PageLayout title='Home'>
 
-      <Herobanner />
+      <Herobanner heroBanner={bannerData.length && bannerData[0]}/>
 
-      <div className='products-container'>
-        {[{producto: 'producto1'},{producto: 'producto2'}, {producto: 'producto3'}].map((product) => product.producto) }
-      </div>
+      <Container sx={{
+        display: 'flex',
+        flexDirection: 'column',
+      }}>
+        {products?.map((product) => product.nombre) }
+      </Container>
 
       Valoraciones
       
@@ -23,4 +30,17 @@ const Home = () => {
   )
 }
 
+export const getStaticProps = async () => {
+  const query ='*[_type == "producto"]';
+  const products = await client.fetch(query);
+
+  const bannerQuery ='*[_type == "banner"]';
+  const bannerData = await client.fetch(bannerQuery);
+
+  return {
+    props: { products, bannerData }
+  }
+}
+
 export default Home
+
