@@ -1,21 +1,45 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+
+import { Button, AppBar, Container, Toolbar, MenuItem, Box } from '@mui/material';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+
+
 
 const Navbar = () => {
   return (
-    <div className='navbar-container'>
-        <Link href='/'>
-            <img src='' alt='logo' />
-        </Link>
+    <AppBar position='static' sx={{
+      backgroundColor: 'var(--light-color)',
+      color: 'var(--dark-color)',
+    }}>
+      <Container maxWidth='xl' > 
+        <Toolbar disableGutters sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}>
+          <Link href='/'>
+              <Image src='/Logo/AkikoTrans.png' alt='logo' width='180' height='60'/>
+          </Link>
+          
+          <Box sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            
+          }}>
+            <MenuItem><Link href='/productPage'>Productos</Link></MenuItem>
+            <MenuItem><Link href='/offers'>Ofertas</Link></MenuItem>
+            <MenuItem><Link href='/about'>Nosotros</Link></MenuItem>
         
-        <ul>
-            <li><Link href='/productPage'>Productos</Link></li>
-            <li><Link href='/offers'>Ofertas</Link></li>
-            <li><Link href='/about'>Nosotros</Link></li>
-        </ul>
-
-      <button className='cart-button' onClick={() => {}} >carrito</button>
-    </div> 
+            <Button variant='contained' onClick={() => {}} sx={{
+              backgroundColor: 'var(--alert-color)',
+            }} >carrito <ShoppingBagOutlinedIcon /></Button>
+          </Box>
+          
+        </Toolbar>
+      </Container>
+    </AppBar> 
   )
 }
 
