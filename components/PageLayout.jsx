@@ -3,22 +3,31 @@ import Head from 'next/head';
 
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { Box } from '@mui/material';
 
-export default function PageLayout({ children, title }) {
+export default function PageLayout({ children, pageTitle }) {
+  console.log(pageTitle)
   return (
-    <div className="page-layout">
+    <Box sx={{
+      backgroundColor: 'var(--background-light-color)',
+    }}>
         <Head>
-            <title> {`Akiko - ${title}`} </title>
+            <title> Akiko - {pageTitle} </title>
         </Head>
 
-        <header>
-          <Navbar />
-        </header>
+        <Navbar />
         
-        <main>{children}</main>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          minHeight: '100vh',
+        }}>
+          <main>{children}</main>
 
-        <Footer />
+          <Footer />
+        </Box>
 
-    </div>
+    </Box>
   );
 }

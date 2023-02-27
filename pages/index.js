@@ -1,32 +1,55 @@
 import React from 'react';
 
-import { Container } from '@mui/material';
+import { Container, Box, Typography, colors } from '@mui/material';
 
 import Herobanner from '../components/Herobanner';
 import PageLayout from '../components/PageLayout';
+import ProductCard from '../components/ProductCard';
 
 import { client } from '../lib/client';
 
 const Home = ({ products, bannerData }) => {
-  console.log(products);
   return (
-    <>
-      <PageLayout title='Home'>
+      <PageLayout pageTitle='Hero'>
 
-      <Herobanner heroBanner={bannerData.length && bannerData[0]}/>
+        <Herobanner heroBanner={bannerData.length && bannerData[1]}/>
 
-      <Container sx={{
-        display: 'flex',
-        flexDirection: 'column',
-      }}>
-        {products?.map((product) => product.nombre) }
-      </Container>
+        <Box sx={{
+          backgroundColor: '#fffffe',
+          padding: '1rem',
+          margin: '3rem 2rem 3rem 2rem',
+          borderRadius: '1rem',
+          textAlign: 'center',
+        }}>
 
-      Valoraciones
-      
+        <Typography variant='h3' component='h1' 
+          sx={{
+           textAlign: 'center', 
+           margin: '1rem 0 1rem 0', 
+           padding: '1rem 0 1rem 0',
+           color: 'var(--headlines-color)',
+          }}>
+            Productos Destacados
+        </Typography>
+
+        <Container sx={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridGap: '40px',
+          padding: '1rem'
+
+        }}>
+          {products?.map((product) => {
+        
+            return (
+              <ProductCard key={product._id} product={product} /> 
+            )
+          }) }
+        </Container>
+      </Box>
+        Valoraciones
+        
       </PageLayout>
-      
-    </>
   )
 }
 

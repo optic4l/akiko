@@ -1,47 +1,62 @@
 import React from 'react'
-import Image from 'next/image'
 
-import { useNextSanityImage } from 'next-sanity-image'
-
-import { Container, Button } from '@mui/material'
-
-import { urlFor, client } from '../lib/client'
+import {  Button,  Typography } from '@mui/material'
 import { Box } from '@mui/system'
+
+import Link from 'next/link'
+
+import { urlFor } from '../lib/client'
 
 
 const Herobanner = ({ heroBanner } ) => {
 
-  const imageProps = useNextSanityImage(
-		client,
-		heroBanner.imagen
-	);
 
   return (
     <Box sx={{
       position: 'relative',
+      borderRadius: '50%',
       }}>
       <Box sx={{
-        
+       '.img': {
+          borderRadius: '0 0 1rem 1rem',
+       }
         }}>
-        <img src={urlFor(heroBanner.imagen)} alt='imagen banner' width={'100%'} height={500}/>
+        <img src={urlFor(heroBanner.imagen)} alt='imagen banner' width={'100%'} height={600} className='img'/>
       </Box>
+          <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            position: 'absolute',
+            bottom: '20%',
+            left: '5%',
+            color: 'var(--headlines-color)',
+            maxWidth: '30%',
+            padding: '1rem',
+            borderRadius: '1rem',
+          }}>
+              <Typography variant='h4'>{ heroBanner.titulo } </Typography>
+              <Typography variant='body2' gutterBottom sx={{color: 'var(--paragraph-color)'}}>{ heroBanner.descripcion } </Typography>
+              <Typography variant='subtitle2' gutterBottom sx={{color: 'var(--paragraph-color)'}}>Hasta un {heroBanner.descuento}% de descuento</Typography>
+              <Button variant='contained' component={Link} href='/offers' sx={{
+                backgroundColor: 'var(--button-color)',
+                '&:hover': {
+                  backgroundColor: 'var(--secondary-color)',
+                  color: 'var(--background-color)',
+                  '& .textButton': {
+                    color: 'var(--background-color)',
+                  }
+                }
+              }}>
+                <Typography className='textButton' variant='button' sx={{
+                color: 'var(--button-text-color)',
+                
+                }}>
+                  Ver ofertas
+                </Typography>
+              </Button>
+            </Box>  
+            
         
-        <Box sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          position: 'absolute',
-          bottom: '20%',
-          left: '15%',
-          color: 'var(--dark-color)',
-        }}>
-            <h1>{ heroBanner.titulo } </h1>
-            <p>{ heroBanner.descripcion } </p>
-            <p>Hasta un {heroBanner.descuento}% de descuento</p>
-            <Button variant='contained' sx={{
-              backgroundColor: 'var(--alert-color)',
-              color: 'var(--light-color)',
-            }}>Ver ofertas</Button>
-        </Box>
     </Box>
   )
 }

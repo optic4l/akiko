@@ -1,10 +1,22 @@
 :root  {
-  --light-color: #FFD8E1;
-  --dark-color: #0F1108;
-  --darker-light-color: #FFA8C2;
-  --alert-color: #E12222;
-}
+  --background-light-color: #f9f8fc;
+  --headlines-color: #0e172c;
+  --paragraph-color: #0e172c;
+  --subline-color: #1b1425;
+  --button-color: #0e172c;
+  --button-text-color: #fffffe;
+  --primary-color: #fec7d7;
+  --secondary-color: #d9d4e7;
+  --tertiary-color: #a786df;
 
+  --background-dark-color: #0e172c;
+  --headlines-dark-color: #fffffe;
+  --paragraph-dark-color: #d9d4e7;
+  --subline-dark-color: #fffffe;
+  --button-dark-color: #a786df;
+  --button-text-dark-color: #d9d4e7;
+
+}
 
 * {
     margin:  0;
@@ -13,8 +25,7 @@
 
   a {
     text-decoration: none;
-  }
-  
-  a:visited {
     color: inherit;
   }
+  
+  

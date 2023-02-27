@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 import { Button, AppBar, Container, Toolbar, MenuItem, Box, Badge } from '@mui/material';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
@@ -10,8 +9,8 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 const Navbar = () => {
   return (
     <AppBar position='static' sx={{
-      backgroundColor: 'var(--light-color)',
-      color: 'var(--dark-color)',
+      backgroundColor: 'var(--primary-color)',
+      color: 'var(--headlines-color)',
     }}>
       <Container maxWidth='xl' > 
         <Toolbar disableGutters sx={{
@@ -19,7 +18,7 @@ const Navbar = () => {
           justifyContent: 'space-between',
         }}>
           <Link href='/'>
-              <Image src='/Logo/AkikoTrans.png' alt='logo' width='180' height='60'/>
+              <img src='/Logo/AkikoTrans.png' alt='logo' width='180' height='60'/>
           </Link>
           
           <Box sx={{
@@ -34,13 +33,18 @@ const Navbar = () => {
 
             
             <Button 
-            variant='contained' 
-            onClick={() => {}} 
-            sx={{ backgroundColor: 'var(--alert-color)'}} >
-              carrito <Badge badgeContent={2} color='primary' sx={{
-                backgroundColor: 'var(--alert-color)',
-                color: 'var(--light-color)',
-                
+            variant='contained'
+            href='/checkout/' 
+            sx={{
+              backgroundColor: 'var(--button-color)',
+              color: 'var(--button-text-color)',
+            }} >
+              carrito 
+              <Badge badgeContent={2} color='primary' sx={{
+                '& .MuiBadge-badge': {
+                  backgroundColor: 'var(--button-color)',
+                  color: 'var(--button-text-color)',
+                }
               }}><ShoppingBagOutlinedIcon /></Badge>
             </Button>
             
